@@ -160,7 +160,15 @@ section { position: relative; z-index: 1; padding: 100px 60px; }
 
 /* ACHIEVEMENTS */
 #achievements { background: var(--navy); }
-.achieve-list { display: flex; flex-direction: column; gap: 16px; max-width: 900px; }
+.achieve-subsection { max-width: 900px; }
+.achieve-sub-title {
+  font-family: 'Share Tech Mono', monospace; font-size: 11px;
+  letter-spacing: 0.2em; color: var(--blue-bright); text-transform: uppercase;
+  margin-bottom: 20px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--navy-border);
+  display: flex; align-items: center; gap: 12px;
+}
+.achieve-sub-title::before { content: '//'; color: var(--blue); }
 .achieve-item { display: flex; align-items: flex-start; gap: 24px; padding: 24px 28px; background: var(--navy-card); border: 1px solid var(--navy-border); border-radius: 2px; transition: border-color 0.2s; position: relative; overflow: hidden; }
 .achieve-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--blue); }
 .achieve-item:first-child::before { background: linear-gradient(180deg, var(--blue-glow), var(--blue-bright)); }
@@ -233,7 +241,6 @@ footer { background: var(--navy-mid); border-top: 1px solid var(--navy-border); 
     <li><a href="#cad">CAD</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#achievements">Achievements</a></li>
-    <li><a href="#recommendation">Recommendation</a></li>
   </ul>
 </nav>
 
@@ -255,7 +262,7 @@ footer { background: var(--navy-mid); border-top: 1px solid var(--navy-border); 
       to smart agriculture robots.
     </p>
     <div class="hero-links">
-      <a href="/cdn-cgi/l/email-protection#b5c6d4cf8086f5d1c7d0cdd0d99bd0d1c0" class="btn btn-primary">✉ Contact Me</a>
+      <a href="mailto:saz53@drexel.edu" class="btn btn-primary">✉ Contact Me</a>
       <a href="https://linkedin.com/in/shahryar-ali-zafar/" target="_blank" class="btn btn-outline">LinkedIn</a>
       <a href="resume.pdf" class="btn btn-outline">Resume ↓</a>
     </div>
@@ -322,37 +329,31 @@ footer { background: var(--navy-mid); border-top: 1px solid var(--navy-border); 
     <h2 class="section-title">Awards & Achievements</h2>
     <div class="section-line"></div>
   </div>
-  <div class="achieve-list" id="achieve-list"></div>
-</section>
 
-<section id="recommendation" style="background:var(--navy-mid);padding:80px 60px;">
-  <div class="section-header">
-    <span class="section-number">06 //</span>
-    <h2 class="section-title">Recommendation</h2>
-    <div class="section-line"></div>
+  <div class="achieve-subsection">
+    <div class="achieve-sub-title">Awards & Honors</div>
+    <div class="achieve-list" id="achieve-list"></div>
   </div>
-  <div id="rec-block" class="fade-up" style="max-width:780px;background:var(--navy-card);border:1px solid var(--navy-border);border-radius:2px;padding:40px 44px;position:relative;">
-    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue-bright));"></div>
-    <div style="font-family:'Share Tech Mono',monospace;font-size:40px;color:var(--blue);opacity:0.3;line-height:1;margin-bottom:16px;">"</div>
-    <p id="rec-text" style="font-size:15px;color:var(--text);line-height:1.85;font-style:italic;margin-bottom:28px;"></p>
-    <div style="display:flex;align-items:center;gap:16px;">
-      <div style="width:40px;height:40px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);flex-shrink:0;">LZ</div>
-      <div>
-        <div id="rec-author" style="font-weight:600;color:var(--white);font-size:14px;"></div>
-        <div id="rec-title" style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text-dim);letter-spacing:0.08em;margin-top:2px;"></div>
-      </div>
-    </div>
+
+  <div class="achieve-subsection" style="margin-top:48px;">
+    <div class="achieve-sub-title">Certifications</div>
+    <div class="achieve-list" id="cert-list"></div>
+  </div>
+
+  <div class="achieve-subsection" style="margin-top:48px;">
+    <div class="achieve-sub-title">Extracurriculars</div>
+    <div class="achieve-list" id="extra-list"></div>
   </div>
 </section>
 
 <footer>
   <div class="footer-name">Shahryar Ali Zafar</div>
   <div class="footer-links">
-    <a href="/cdn-cgi/l/email-protection#b1c2d0cb8482f1d5c3d4c9d4dd9fd4d5c4"><span class="__cf_email__" data-cfemail="eb988a91ded8ab8f998e938e87c58e8f9e">[email&#160;protected]</span></a>
+    <a href="mailto:saz53@drexel.edu">saz53&#64;drexel.edu</a>
     <a href="https://linkedin.com/in/shahryar-ali-zafar/" target="_blank">LinkedIn</a>
     <a href="tel:+13013326998">+1 (301) 332-6998</a>
   </div>
-  <div class="footer-copy">© 2025 Shahryar Ali Zafar</div>
+  <div class="footer-copy">© 2026 Shahryar Ali Zafar</div>
 </footer>
 
 <div class="modal-overlay" id="modal-overlay">
@@ -367,7 +368,7 @@ footer { background: var(--navy-mid); border-top: 1px solid var(--navy-border); 
   <img id="lightbox-img" src="" alt=""/>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ====================================================================
 //  ✏️  ALL YOUR CONTENT IS HERE — edit this section only
 // ====================================================================
@@ -437,31 +438,6 @@ const EXPERIENCES = [
       "Operated CNC routers, mills, and lathes; gained hands-on welding and diverse materials experience"
     ],
     folder: "drexel fsae",
-    photos: []
-  },
-  {
-    company:  "Drexel University",
-    role:     "Intramural Official & Program Assistant",
-    location: "Philadelphia, PA",
-    brief:    "Part-time sports official at Drexel's Recreation Center — officiating games, enforcing rules, and managing game setup across multiple sports.",
-    bullets: [
-      "Officiating intramural games across multiple sports at Drexel University's Recreation Center",
-      "Responsible for game setup and breakdown, enforcing rules and safety protocols",
-      "Supporting program operations and student engagement at the Recreation Center"
-    ],
-    folder: "drexel intramural",
-    photos: []
-  },
-  {
-    company:  "WWF",
-    role:     "Office Intern",
-    location: "Pakistan",
-    brief:    "Assisted with environmental studies, research, and ECO Internship Projects at the World Wildlife Fund.",
-    bullets: [
-      "Worked as an office intern helping out in environmental studies, research and tasks",
-      "Made contributions in management and participated in ECO Internship Projects"
-    ],
-    folder: "wwf",
     photos: []
   },
   {
@@ -566,29 +542,30 @@ const CAD_DRAWINGS = [
 
 const SKILLS = [
   { group:"Languages & Libraries",   items:["Python","NumPy","SciPy","SymPy","Matplotlib"] },
-  { group:"CAD & Design Software",   items:["SolidWorks","SolidWorks Simulation (FEA)","AutoCAD","Autodesk Fusion 360","Revit"] },
+  { group:"CAD & Design Software",   items:["SolidWorks","AutoCAD","Autodesk Fusion 360","Revit"] },
   { group:"Fabrication & Equipment", items:["3D Printing","CNC Router/Mill","Lathe","Laser Cutter","Welding","Sheet Metal","Soldering","Metrology"] },
-  { group:"Tools & Platforms",       items:["Arduino IDE","Arc GIS-Pro","Power BI","UltiMaker Cura","Bambu Lab","DelmiaWorks RealTime","Notion","Microsoft Office"] },
+  { group:"Tools & Platforms",       items:["Arduino IDE","Arc GIS-Pro","Power BI","UltiMaker Cura","Bambu Lab","DelmiaWorks RealTime","Monday.com","Notion","Microsoft Office"] },
   { group:"Engineering Domains",     items:["Finite Element Analysis","Process Control Systems","Semiconductor Manufacturing","Structural Analysis","Vacuum Forming","Carbon Fiber Layups"] }
 ];
 
 const ACHIEVEMENTS = [
-  { emoji:"🥇", title:"First Place Winner — DragonHacks 2025",                    sub:"Drexel University" },
-  { emoji:"🥈", title:"Second Place Winner — MakeNJIT Hackathon 2025",            sub:"New Jersey Institute of Technology" },
-  { emoji:"⭐", title:"Drexel Honors Program",                                     sub:"Pennoni Honors College" },
-  { emoji:"🏅", title:"Drexel Delta Scholar",                                      sub:"Pennoni Honors College" },
-  { emoji:"📋", title:"Dean's List",                                               sub:"Drexel University, College of Engineering" },
-  { emoji:"🎓", title:"Dean's Scholarship & Drexel Grant",                         sub:"Full scholarship to study at Drexel University" },
-  { emoji:"📜", title:"Process Control Systems — Udemy Certification",             sub:"Control Engineering and Industrial Engineering · Feb 2026" },
-  { emoji:"📜", title:"Introduction to Semiconductor Manufacturing — Udemy",       sub:"Semiconductor Engineering · Nov 2025" },
-  { emoji:"🤝", title:"Volunteer Teacher — SOS Children's Villages Pakistan",      sub:"Taught basic education and mentored orphaned children · Jun–Jul 2022" }
+  { emoji:"🥇", title:"First Place Winner — DragonHacks 2025",          sub:"Drexel University" },
+  { emoji:"🥈", title:"Second Place Winner — MakeNJIT Hackathon 2025",  sub:"New Jersey Institute of Technology" },
+  { emoji:"⭐", title:"Drexel Honors Program",                           sub:"Pennoni Honors College" },
+  { emoji:"🏅", title:"Drexel Delta Scholar",                            sub:"Pennoni Honors College" },
+  { emoji:"📋", title:"Dean's List",                                     sub:"Drexel University, College of Engineering" },
+  { emoji:"🎓", title:"Dean's Scholarship & Drexel Grant",               sub:"Full scholarship to study at Drexel University" }
 ];
 
-const RECOMMENDATION = {
-  author: "Dr. Lifeng Zhou",
-  title:  "Assistant Professor, Drexel University",
-  text:   "Shahryar has shown consistent motivation, a strong work ethic, and a genuine interest in learning. His ability to grasp new concepts quickly stood out from the beginning — he approaches problems with curiosity and persistence. He significantly enhanced his CAD modeling proficiency in Autodesk Fusion, collaborated well with teammates, and maintained effective communication throughout. His combination of technical development, teamwork, and initiative makes him a standout."
-};
+const CERTIFICATIONS = [
+  { emoji:"📜", title:"Process Control Systems",           sub:"Udemy · Control Engineering and Industrial Engineering" },
+  { emoji:"📜", title:"Introduction to Semiconductor Manufacturing", sub:"Udemy · Semiconductor Engineering" }
+];
+
+const EXTRACURRICULARS = [
+  { emoji:"🏅", title:"Intramural Official & Program Assistant", sub:"Drexel University Recreation Center · Part-time" },
+  { emoji:"🤝", title:"Volunteer Teacher",                       sub:"SOS Children's Villages Pakistan · Taught basic education and mentored orphaned children" }
+];
 
 // ====================================================================
 // ENGINE — no need to edit below
@@ -707,14 +684,19 @@ SKILLS.forEach(g => {
   skillsLayout.appendChild(d);
 });
 
-// Achievements
-const achieveList = document.getElementById('achieve-list');
-ACHIEVEMENTS.forEach((a,i) => {
-  const item = document.createElement('div');
-  item.className = 'achieve-item fade-up'; item.style.transitionDelay = `${i*0.07}s`;
-  item.innerHTML = `<div class="achieve-icon">${a.emoji}</div><div class="achieve-text"><div class="achieve-title">${a.title}</div><div class="achieve-sub">${a.sub}</div></div>`;
-  achieveList.appendChild(item);
-});
+// Achievements, Certifications, Extracurriculars
+function renderAchieveList(data, listId) {
+  const list = document.getElementById(listId);
+  data.forEach((a, i) => {
+    const item = document.createElement('div');
+    item.className = 'achieve-item fade-up'; item.style.transitionDelay = `${i*0.07}s`;
+    item.innerHTML = `<div class="achieve-icon">${a.emoji}</div><div class="achieve-text"><div class="achieve-title">${a.title}</div><div class="achieve-sub">${a.sub}</div></div>`;
+    list.appendChild(item);
+  });
+}
+renderAchieveList(ACHIEVEMENTS,    'achieve-list');
+renderAchieveList(CERTIFICATIONS,  'cert-list');
+renderAchieveList(EXTRACURRICULARS,'extra-list');
 
 // Modal
 function openModal(title, sub, bullets, photos, folder, link) {
@@ -749,46 +731,51 @@ document.getElementById('lightbox-close').addEventListener('click', closeLB);
 document.getElementById('lightbox').addEventListener('click', e => { if(e.target===document.getElementById('lightbox')) closeLB(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape'){closeModal();closeLB();} });
 
-// Recommendation
-if (typeof RECOMMENDATION !== 'undefined') {
-  document.getElementById('rec-text').textContent   = RECOMMENDATION.text;
-  document.getElementById('rec-author').textContent = RECOMMENDATION.author;
-  document.getElementById('rec-title').textContent  = RECOMMENDATION.title;
-  const rb = document.getElementById('rec-block');
-  if (rb) observer.observe(rb);
-}
+// Scroll animations — must be declared before recommendation block uses it
 const observer = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold:0.08 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// Cursor
-const canvas = document.getElementById('cursor-canvas');
-const ctx = canvas.getContext('2d');
-canvas.width=window.innerWidth; canvas.height=window.innerHeight;
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
-let mx=-200,my=-200,trailX=-200,trailY=-200,isHov=false,ripples=[];
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-document.addEventListener('mousedown',()=>ripples.push({x:mx,y:my,r:0,a:1}));
-document.querySelectorAll('a,button,.exp-card,.proj-card,.cad-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>isHov=true); el.addEventListener('mouseleave',()=>isHov=false);
-});
-function drawCursor(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  trailX+=(mx-trailX)*0.12; trailY+=(my-trailY)*0.12;
-  const cx=mx,cy=my,arm=isHov?22:16,gap=5,al=isHov?1:0.85;
-  ctx.save();ctx.translate(cx,cy);ctx.rotate(Date.now()*0.0008);
-  ctx.strokeStyle=`rgba(58,180,255,${al*0.35})`;ctx.lineWidth=1;ctx.setLineDash([4,6]);
-  ctx.beginPath();ctx.arc(0,0,isHov?28:22,0,Math.PI*2);ctx.stroke();ctx.restore();
-  ctx.strokeStyle=`rgba(46,157,228,${al*0.7})`;ctx.lineWidth=1;ctx.setLineDash([]);
-  ctx.beginPath();ctx.arc(cx,cy,isHov?14:8,0,Math.PI*2);ctx.stroke();
-  ctx.strokeStyle=`rgba(58,180,255,${al})`;ctx.lineWidth=1;
-  [[0,-1],[0,1],[-1,0],[1,0]].forEach(([dx,dy])=>{ctx.beginPath();ctx.moveTo(cx+dx*gap,cy+dy*gap);ctx.lineTo(cx+dx*arm,cy+dy*arm);ctx.stroke();});
-  const tD=isHov?20:14;
-  [[1,1],[1,-1],[-1,1],[-1,-1]].forEach(([sx,sy])=>{
-    ctx.beginPath();ctx.moveTo(cx+sx*tD,cy+sy*tD);ctx.lineTo(cx+sx*(tD+4),cy+sy*tD);ctx.stroke();
-    ctx.beginPath();ctx.moveTo(cx+sx*tD,cy+sy*tD);ctx.lineTo(cx+sx*tD,cy+sy*(tD+4));ctx.stroke();
+// Cursor — engineering crosshair
+(function() {
+  const canvas = document.getElementById('cursor-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  let mx=-200, my=-200, trailX=-200, trailY=-200, isHov=false, ripples=[];
+  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+  document.addEventListener('mousedown', () => ripples.push({x:mx, y:my, r:0, a:1}));
+  document.querySelectorAll('a,button,.exp-card,.proj-card,.cad-card').forEach(el => {
+    el.addEventListener('mouseenter', () => isHov=true);
+    el.addEventListener('mouseleave', () => isHov=false);
   });
-  ctx.fillStyle=isHov?'rgba(58,180,255,0.9)':'rgba(58,180,255,0.6)';
-  ctx.beginPath();ctx.arc(cx,cy,isHov?2.5:1.5,0,Math.PI*2);ctx.fill();
-  ctx.strokeStyle='rgba(46,157,228,0.18)';ctx.lineWidth=1;ctx.setLineDash([2,4]);
-  ctx.beginPath();ctx.arc(trailX,trailY,6,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
-  
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    trailX += (mx-trailX)*0.12; trailY += (my-trailY)*0.12;
+    const cx=mx, cy=my, arm=isHov?22:16, gap=5, al=isHov?1:0.85;
+    // rotating dashed outer ring
+    ctx.save(); ctx.translate(cx,cy); ctx.rotate(Date.now()*0.0008);
+    ctx.strokeStyle=`rgba(58,180,255,${al*0.35})`; ctx.lineWidth=1; ctx.setLineDash([4,6]);
+    ctx.beginPath(); ctx.arc(0,0,isHov?28:22,0,Math.PI*2); ctx.stroke(); ctx.restore();
+    // solid inner ring
+    ctx.strokeStyle=`rgba(46,157,228,${al*0.7})`; ctx.lineWidth=1; ctx.setLineDash([]);
+    ctx.beginPath(); ctx.arc(cx,cy,isHov?14:8,0,Math.PI*2); ctx.stroke();
+    // crosshair arms
+    ctx.strokeStyle=`rgba(58,180,255,${al})`; ctx.lineWidth=1;
+    [[0,-1],[0,1],[-1,0],[1,0]].forEach(([dx,dy])=>{
+      ctx.beginPath(); ctx.moveTo(cx+dx*gap,cy+dy*gap); ctx.lineTo(cx+dx*arm,cy+dy*arm); ctx.stroke();
+    });
+    // corner ticks
+    const tD=isHov?20:14;
+    [[1,1],[1,-1],[-1,1],[-1,-1]].forEach(([sx,sy])=>{
+      ctx.beginPath(); ctx.moveTo(cx+sx*tD,cy+sy*tD); ctx.lineTo(cx+sx*(tD+4),cy+sy*tD); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx+sx*tD,cy+sy*tD); ctx.lineTo(cx+sx*tD,cy+sy*(tD+4)); ctx.stroke();
+    });
+    // center dot
+    ctx.fillStyle=isHov?'rgba(58,180,255,0.9)':'rgba(58,180,255,0.6)';
+    ctx.beginPath(); ctx.arc(cx,cy,isHov?2.5:1.5,0,Math.PI*2); ctx.fill();
+    // ghost trail
+    ctx.strokeStyle='rgba(46,157,228,0.18)'; ctx.lineWidth=1; ctx.setLineDash([2,4]);
+    ctx.beginPath(); ctx.arc(trailX,trailY,6,0,Math.PI*2); ctx.stroke(); ctx.setLineDash([]);
+ 
