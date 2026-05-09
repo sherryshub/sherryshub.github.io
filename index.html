@@ -133,22 +133,79 @@ section { position: relative; z-index: 1; padding: 100px 60px; }
 .proj-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--white); letter-spacing: 0.06em; margin-bottom: 6px; }
 .proj-brief { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
 
-/* CAD DRAWINGS */
-#cad { background: var(--navy-mid); }
-.cad-subsection { margin-bottom: 56px; }
-.cad-subsection:last-child { margin-bottom: 0; }
-.cad-sub-title { font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--blue-bright); text-transform: uppercase; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--navy-border); display: flex; align-items: center; gap: 12px; }
+/* CAD FILMSTRIP */
+#cad { background: var(--navy-mid); overflow: hidden; }
+.cad-subsection { margin-bottom: 0; }
+.cad-sub-title { font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--blue-bright); text-transform: uppercase; margin-bottom: 32px; padding-bottom: 10px; border-bottom: 1px solid var(--navy-border); display: flex; align-items: center; gap: 12px; }
 .cad-sub-title::before { content: '//'; color: var(--blue); }
-.cad-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
-.cad-card { background: var(--navy-card); border: 1px solid var(--navy-border); border-radius: 2px; cursor: pointer; overflow: hidden; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; position: relative; }
-.cad-card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,0.4); }
-.cad-card-thumb { height: 160px; overflow: hidden; position: relative; background: var(--navy-mid); }
-.cad-card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
-.cad-card:hover .cad-card-thumb img { transform: scale(1.05); }
-.cad-card-thumb-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; font-family: 'Share Tech Mono', monospace; font-size: 9px; color: var(--navy-border); letter-spacing: 0.1em; }
-.cad-card-label { padding: 12px 16px; font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--text); letter-spacing: 0.08em; display: flex; align-items: center; justify-content: space-between; }
-.cad-card-label span { color: var(--text-dim); font-size: 10px; }
-.cad-add-card { background: transparent; border: 1px dashed var(--navy-border); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; min-height: 200px; cursor: default; font-family: 'Share Tech Mono', monospace; font-size: 9px; color: var(--navy-border); letter-spacing: 0.1em; text-align: center; padding: 20px; line-height: 2; }
+
+/* Filmstrip wrapper */
+.cad-filmstrip-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+/* Top & bottom sprocket holes row */
+.cad-sprockets {
+  display: flex; gap: 18px; padding: 0 12px;
+  height: 22px; align-items: center; overflow: hidden;
+}
+.cad-sprocket {
+  width: 16px; height: 12px; flex-shrink: 0;
+  border: 1px solid rgba(30,111,165,0.25);
+  border-radius: 2px; background: var(--navy);
+}
+/* The scrolling track */
+.cad-track {
+  display: flex;
+  gap: 16px;
+  padding: 10px 0;
+  width: max-content;
+  animation: cadScroll 60s linear infinite;
+}
+.cad-track:hover { animation-play-state: paused; }
+@keyframes cadScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+/* Individual frame */
+.cad-frame {
+  flex-shrink: 0;
+  width: 280px; height: 200px;
+  border: 1px solid var(--navy-border);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: var(--navy-card);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.cad-frame:hover {
+  border-color: var(--blue-glow);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(58,180,255,0.2);
+  z-index: 2;
+}
+.cad-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.4s;
+}
+.cad-frame:hover img { transform: scale(1.06); }
+.cad-frame-num {
+  position: absolute; bottom: 6px; right: 8px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px; color: rgba(58,180,255,0.5);
+  letter-spacing: 0.1em;
+}
+/* Gradient fade edges */
+.cad-filmstrip-wrap::before,
+.cad-filmstrip-wrap::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 3; pointer-events: none;
+}
+.cad-filmstrip-wrap::before { left: 0; background: linear-gradient(90deg, var(--navy-mid), transparent); }
+.cad-filmstrip-wrap::after  { right: 0; background: linear-gradient(-90deg, var(--navy-mid), transparent); }
+.cad-hint { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; margin-top: 16px; text-align: center; }
 
 /* SKILLS */
 #skills { background: var(--navy); }
@@ -301,7 +358,12 @@ footer { background: var(--navy-mid); border-top: 1px solid var(--navy-border); 
   </div>
   <div class="cad-subsection">
     <div class="cad-sub-title">CAD Work</div>
-    <div class="cad-grid" id="cad-parts-grid"></div>
+    <div class="cad-filmstrip-wrap">
+      <div class="cad-sprockets" id="cad-sprockets-top"></div>
+      <div class="cad-track" id="cad-track"></div>
+      <div class="cad-sprockets" id="cad-sprockets-bot"></div>
+    </div>
+    <div class="cad-hint">// hover to pause · click any frame to enlarge</div>
   </div>
 </section>
 
@@ -747,27 +809,36 @@ PROJECTS.forEach((proj, i) => {
   card.addEventListener('click', () => openModal(proj.title, proj.tags.join(' · '), proj.bullets, proj.photos, proj.folder, proj.link));
 });
 
-// CAD grids
-function renderCADGrid(items, gridId, defaultFolder) {
-  const grid = document.getElementById(gridId);
-  if (!items.length) {
-    const d = document.createElement('div'); d.className = 'cad-add-card';
-    d.innerHTML = `📁 media/${defaultFolder}/<br/>Add entries to the<br/>CAD_PARTS or CAD_DRAWINGS<br/>arrays in the script above`;
-    grid.appendChild(d); return;
-  }
-  items.forEach((item, i) => {
-    const card = document.createElement('div');
-    card.className = 'cad-card fade-up'; card.style.transitionDelay = `${i*0.07}s`;
-    const first = item.photos && item.photos.length ? res(item.photos[0]) : null;
-    const thumb = first
-      ? `<img src="${src(item.folder, first.file)}" alt="${item.name}"/>`
-      : `<div class="cad-card-thumb-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.22"><rect x="2" y="3" width="20" height="18" rx="1"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>ADD PHOTO</div>`;
-    card.innerHTML = `<div class="cad-card-thumb">${thumb}</div><div class="cad-card-label">${item.name}<span>${item.photos?item.photos.length:0} files</span></div>`;
-    grid.appendChild(card);
-    card.addEventListener('click', () => openModal(item.name, 'CAD Drawing', [], item.photos||[], item.folder, ''));
+// CAD Filmstrip
+(function() {
+  const item = CAD_PARTS[0];
+  if (!item || !item.photos || !item.photos.length) return;
+  const track = document.getElementById('cad-track');
+  const topRow = document.getElementById('cad-sprockets-top');
+  const botRow = document.getElementById('cad-sprockets-bot');
+
+  // Build double-length array for seamless loop
+  const doubled = [...item.photos, ...item.photos];
+
+  // Sprocket holes
+  const holeCount = Math.ceil(window.innerWidth / 34) * 2 + 10;
+  [topRow, botRow].forEach(row => {
+    for (let i = 0; i < holeCount; i++) {
+      const h = document.createElement('div'); h.className = 'cad-sprocket'; row.appendChild(h);
+    }
   });
-}
-renderCADGrid(CAD_PARTS, 'cad-parts-grid', 'cad parts');
+
+  // Frames
+  doubled.forEach((p, i) => {
+    const rp = res(p);
+    const frame = document.createElement('div');
+    frame.className = 'cad-frame';
+    frame.innerHTML = `<img src="${src(item.folder, rp.file)}" alt="CAD ${(i % item.photos.length) + 1}" loading="lazy"/>
+      <div class="cad-frame-num">${String((i % item.photos.length) + 1).padStart(2,'0')} / ${item.photos.length}</div>`;
+    frame.addEventListener('click', () => openLB(src(item.folder, rp.file)));
+    track.appendChild(frame);
+  });
+})();
 
 // Skills
 const skillsLayout = document.getElementById('skills-layout');
