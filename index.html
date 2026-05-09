@@ -271,11 +271,7 @@ footer { background: var(--navy-mid); border-top: 1px solid var(--navy-border); 
       <div class="photo-corner corner-tl"></div><div class="photo-corner corner-tr"></div>
       <div class="photo-corner corner-bl"></div><div class="photo-corner corner-br"></div>
     </div>
-    <!-- SWAP THIS for: <img src="media/your-photo.jpg" alt="Shahryar"/> -->
-    <div class="hero-photo-placeholder">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      ADD YOUR PHOTO HERE
-    </div>
+    <img src="media/photo.jpg" alt="Shahryar Ali Zafar"/>
   </div>
 </section>
 
@@ -300,16 +296,12 @@ footer { background: var(--navy-mid); border-top: 1px solid var(--navy-border); 
 <section id="cad">
   <div class="section-header">
     <span class="section-number">03 //</span>
-    <h2 class="section-title">CAD Drawings</h2>
+    <h2 class="section-title">CAD</h2>
     <div class="section-line"></div>
   </div>
   <div class="cad-subsection">
-    <div class="cad-sub-title">Solid Parts</div>
+    <div class="cad-sub-title">CAD Work</div>
     <div class="cad-grid" id="cad-parts-grid"></div>
-  </div>
-  <div class="cad-subsection">
-    <div class="cad-sub-title">Technical Drawings</div>
-    <div class="cad-grid" id="cad-drawings-grid"></div>
   </div>
 </section>
 
@@ -583,6 +575,21 @@ const PROJECTS = [
     ]
   },
   {
+    title:  "Semiconductor Materials Research — Drexel",
+    tags:   ["Raman Spectroscopy", "Research", "Excel"],
+    brief:  "Synthesizing red phosphorus semiconductors and testing single-wire devices using Raman spectroscopy and electrical analysis.",
+    bullets: [
+      "Synthesized red phosphorus semiconductors with varying metal halides and iodine compositions using vacuum sealed argon purged quartz ampoules",
+      "Prepared single wire semiconductor devices for electrical characterization and conductivity testing",
+      "Tested synthesized devices using Raman spectrometer characterization and electrical analysis methods"
+    ],
+    link: "",
+    folder: "semiconductor",
+    photos: [
+      "1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg",
+    ]
+  },
+  {
     title:  "Plant Pal — MakeNJIT Hackathon",
     tags:   ["SolidWorks", "Arduino", "ESP-32", "IoT"],
     brief:  "🥈 2nd Place — modular wireless smart soil monitoring device with real-time IoT data, automated watering, and 3D-printed casing.",
@@ -611,14 +618,11 @@ const PROJECTS = [
 const CAD_PARTS = [
   // { name:"Part Name", folder:"cad parts", photos:["file1.jpg","file2.jpg"] },
 ];
-const CAD_DRAWINGS = [
-  // { name:"Drawing Name", folder:"cad drawings", photos:["file1.jpg"] },
-];
 
 const SKILLS = [
-  { group:"Languages & Libraries",   items:["Python","NumPy","SciPy","SymPy","Matplotlib"] },
-  { group:"CAD & Design Software",   items:["SolidWorks","AutoCAD","Autodesk Fusion 360","Revit"] },
-  { group:"Fabrication & Equipment", items:["3D Printing","CNC Router/Mill","Lathe","Laser Cutter","Welding","Sheet Metal","Soldering","Metrology"] },
+  { group:"Languages & Libraries",   items:["Python","NumPy","SciPy","SymPy","Matplotlib","MATLAB"] },
+  { group:"CAD & Design Software",   items:["SolidWorks","AutoCAD","Autodesk Fusion 360"] },
+  { group:"Fabrication & Equipment", items:["3D Printing","CNC Router/Mill","Lathe","Laser Cutter","Welding","Sheet Metal","Soldering","Metrology","Raman Spectrometer"] },
   { group:"Tools & Platforms",       items:["Arduino IDE","Arc GIS-Pro","Power BI","UltiMaker Cura","Bambu Lab","DelmiaWorks RealTime","Monday.com","Notion","Microsoft Office Suite"] },
   { group:"Engineering Domains",     items:["Finite Element Analysis","Process Control Systems","Semiconductor Manufacturing","Structural Analysis","Vacuum Forming","Carbon Fiber Layups"] }
 ];
@@ -752,8 +756,7 @@ function renderCADGrid(items, gridId, defaultFolder) {
     card.addEventListener('click', () => openModal(item.name, 'CAD Drawing', [], item.photos||[], item.folder, ''));
   });
 }
-renderCADGrid(CAD_PARTS,    'cad-parts-grid',    'cad parts');
-renderCADGrid(CAD_DRAWINGS, 'cad-drawings-grid', 'cad drawings');
+renderCADGrid(CAD_PARTS, 'cad-parts-grid', 'cad parts');
 
 // Skills
 const skillsLayout = document.getElementById('skills-layout');
